@@ -7,6 +7,7 @@ void setup ()  {
  size(800, 800, FX2D);
  rectMode(CENTER);
  noStroke();
+ colorMode(HSB);
  background(0);
  
  numstars  = 100;
