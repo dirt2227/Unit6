@@ -5,7 +5,7 @@ class rain  {
   
   rain()  {
     x = random (0, width);
-    y = random (0, height);
+    y = random (-10, height);
     vx = 1;
     vy = random(1, 10);
     size = vy;
@@ -13,8 +13,12 @@ class rain  {
   
   //behavior functions: defines what a star does
   void show()  {
+    pushMatrix();
+    strokeWeight(0);
     fill(255);
+    rotate(radians(30));
     rect(x, y, size/2, size);
+    popMatrix();
   }
   
   void act()  {

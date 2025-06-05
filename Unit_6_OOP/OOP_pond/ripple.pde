@@ -9,7 +9,9 @@ class ripple {
 
   void show() {
     alpha = map(size, 0, 200, 255, 0);
+    strokeWeight(1);
     stroke(255, alpha);
+    fill(blue);
     ellipse(x, y, size, size/2);
         
   }
