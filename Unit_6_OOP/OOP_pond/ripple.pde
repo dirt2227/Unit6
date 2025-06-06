@@ -1,5 +1,5 @@
 class ripple {
-  float x, y, size, alpha, bubblealpha;
+  float x, y, size, alpha;
 
   ripple() {
     x = random(width);
@@ -11,9 +11,11 @@ class ripple {
     alpha = map(size, 0, 200, 255, 0);
     strokeWeight(1);
     stroke(255, alpha);
-    fill(blue);
+    fill(255, 4);
     ellipse(x, y, size, size/2);
-        
+    ellipse(x, y, size * 0.8, size/2 * 0.8);
+    ellipse(x, y, size * 0.4, size/2 * 0.4);
+    ellipse(x, y, size * 0.1, size/2 * 0.1);
   }
 
   void act() {
@@ -22,15 +24,6 @@ class ripple {
       x = random(width);
       y = random(height);
       size = 0;
-    }
-    if (size == 27 ) {
-     float bubblealpha = 255;
-     while (bubblealpha > 0)  {
-      bubblealpha -= 1;
-      fill(255, bubblealpha);
-      noStroke();
-      circle(random(x, x + 10), random(y, y - 10), 10);
-     }
     }
   }
 }

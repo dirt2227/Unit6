@@ -5,7 +5,7 @@ class rain  {
   
   rain()  {
     x = random (0, width);
-    y = random (-10, height);
+    y = random (-height, 0);
     vx = 1;
     vy = random(1, 10);
     size = vy;
@@ -24,7 +24,7 @@ class rain  {
   void act()  {
     y = y + vy;
     if (y > height + size)  {
-      y = -size;
+      y = random(-height, 0);
     }
   }
 }
