@@ -25,7 +25,7 @@ void setup () {
   numripples  = 20;
   myripples = new ripple[numripples];
 
-  numrains  = 100;
+  numrains  = 200;
   myrains = new rain[numrains];
 
   numfireflies = 10;

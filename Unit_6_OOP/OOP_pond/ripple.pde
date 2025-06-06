@@ -20,7 +20,7 @@ class ripple {
 
   void act() {
     size = size + 3;
-    if ( size >= 200) {
+    if ( size >= random(200, 500)) {
       x = random(width);
       y = random(height);
       size = 0;
