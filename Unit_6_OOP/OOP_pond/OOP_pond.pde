@@ -4,6 +4,7 @@ import processing.javafx.*;
 color blue = #219ebc;
 color yellow = #ffbe0b;
 color brown = #7f5539;
+color pink = #ffafcc;
 
 ripple[] myripples;
 int numripples;
@@ -13,6 +14,9 @@ int numrains;
 
 firefly[] myfireflies;
 int numfireflies;
+
+itswindyouthere[] mywindy;
+int numwindy;
 
 void setup () {
   size(800, 800, FX2D);
@@ -30,6 +34,9 @@ void setup () {
 
   numfireflies = 10;
   myfireflies = new firefly[numfireflies];
+  
+  numwindy = 5;
+  mywindy = new itswindyouthere[numwindy];
 
   int a = 0;
   while (a < numripples) {
@@ -49,6 +56,12 @@ void setup () {
   while (c < numfireflies) {
     myfireflies[c] = new firefly();
     c++;
+  }
+  
+  int d = 0;
+  while (d < numwindy) {
+    mywindy[d] = new itswindyouthere();
+    d++;
   }
 }
 
@@ -75,5 +88,12 @@ void draw() {
     myfireflies[c].show();
     myfireflies[c].act();
     c++;
+  }
+  
+  int d = 0;
+  while (d < numwindy)  {
+   mywindy[d].show(); 
+   mywindy[d].act(); 
+   d++;
   }
 }
