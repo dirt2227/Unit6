@@ -3,8 +3,14 @@ import processing.javafx.*;
 //color
 color blue = #219ebc;
 color yellow = #ffbe0b;
-color brown = #7f5539;
+color brown = #bc6c25;
+color dbrown = #7f5539;
+color ddbrown = #583101;
 color pink = #ffafcc;
+
+float y = 800;
+float velocity = 0.5;
+float miny = 800, maxy = 850;
 
 ripple[] myripples;
 int numripples;
@@ -34,8 +40,8 @@ void setup () {
 
   numfireflies = 10;
   myfireflies = new firefly[numfireflies];
-  
-  numwindy = 5;
+
+  numwindy = 20;
   mywindy = new itswindyouthere[numwindy];
 
   int a = 0;
@@ -57,7 +63,7 @@ void setup () {
     myfireflies[c] = new firefly();
     c++;
   }
-  
+
   int d = 0;
   while (d < numwindy) {
     mywindy[d] = new itswindyouthere();
@@ -67,6 +73,8 @@ void setup () {
 
 void draw() {
   background(blue);
+
+
   int a = 0;
   while (a < numripples) {
     myripples[a].show();
@@ -74,14 +82,28 @@ void draw() {
     a++;
   }
 
+
   int b = 0;
   while (b < numrains) {
     myrains[b].show();
     myrains[b].act();
     b++;
   }
-  //fill(blue, 10);
-  //rect(width/2, height/2, width, height);
+
+  int d = 0;
+  while (d < numwindy) {
+    mywindy[d].show();
+    mywindy[d].act();
+    d++;
+  }
+
+
+  boat(y);
+  y = y + velocity;
+  if (y > maxy || y < miny) {
+    velocity = velocity * -1;
+  }
+
 
   int c = 0;
   while (c < numfireflies) {
@@ -89,11 +111,17 @@ void draw() {
     myfireflies[c].act();
     c++;
   }
-  
-  int d = 0;
-  while (d < numwindy)  {
-   mywindy[d].show(); 
-   mywindy[d].act(); 
-   d++;
-  }
+}
+
+
+void boat(float y) {
+  fill(brown);
+  stroke(dbrown);
+  ellipse(400, y, 1000, 300);
+  stroke(dbrown);
+  fill(dbrown);
+  ellipse(400, y + 50, 1000, 300);
+  fill(brown);
+  rect(300, y - 50, 50, 100);
+  rect(600, y - 50, 50, 100);
 }

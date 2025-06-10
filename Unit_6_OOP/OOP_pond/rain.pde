@@ -11,7 +11,7 @@ class rain  {
     size = vy;
   }
   
-  //behavior functions: defines what a star does
+
   void show()  {
     pushMatrix();
     strokeWeight(0);

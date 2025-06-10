@@ -10,9 +10,9 @@ class firefly {
   void show() {
 
     strokeWeight(5);
-    stroke(brown);
+    stroke(ddbrown);
     line(x, y + 20, x - 55, y + 300);
-    stroke(brown, 20);
+    stroke(ddbrown, 20);
     line(x - 50, y + 50, x - 100, y + 350);
     int a = 0;
     noStroke();

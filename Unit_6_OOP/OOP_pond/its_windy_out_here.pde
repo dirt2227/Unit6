@@ -1,28 +1,29 @@
 class itswindyouthere  {
    
-  float x, y, vx, vy, size;
+  float x, y, vx, vy, size, alpha;
 
   
   itswindyouthere()  {
-    x = random (width + 100, width + 700);
-    y = random (-height, 0);
-    vx = random(-15, -10);
+    x = random (width, 0);
+    y = random (0, height);
+    vx = random(-10, -7);
     vy = 0;
     size = random(50, 200);
   }
   
-  //behavior functions: defines what a star does
+
   void show()  {
     strokeWeight(4);
-    stroke(255,120);
+    float alpha = map(y, height, 0, 255, 0);
+    stroke(255, alpha);
     line(x, y, x + size, y);
    
   }
   
   void act()  {
     x = x + vx;
-    if (x < -700)  {
-      x = width + 700;
+    if (x < -200)  {
+      x = width;
       y = random(0, height);
     }
   }

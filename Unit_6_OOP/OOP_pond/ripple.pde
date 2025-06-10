@@ -1,10 +1,11 @@
 class ripple {
-  float x, y, size, alpha;
+  float rx, ry, size, alpha, a;
 
   ripple() {
-    x = random(width);
-    y = random(height);
+    rx = random(width);
+    ry = random(height);
     size = random(200);
+    a = random(5, 10);
   }
 
   void show() {
@@ -12,17 +13,18 @@ class ripple {
     strokeWeight(1);
     stroke(255, alpha);
     fill(255, 4);
-    ellipse(x, y, size, size/2);
-    ellipse(x, y, size * 0.8, size/2 * 0.8);
-    ellipse(x, y, size * 0.4, size/2 * 0.4);
-    ellipse(x, y, size * 0.1, size/2 * 0.1);
+    ellipse(rx, ry, size, size/2);
+    ellipse(rx, ry, size * 0.8, size/2 * 0.8);
+    ellipse(rx, ry, size * 0.4, size/2 * 0.4);
+    ellipse(rx, ry, size * 0.1, size/2 * 0.1);
   }
 
   void act() {
     size = size + 3;
+    rx = rx - a;
     if ( size >= random(200, 500)) {
-      x = random(width);
-      y = random(height);
+      rx = random(width);
+      ry = random(height);
       size = 0;
     }
   }
