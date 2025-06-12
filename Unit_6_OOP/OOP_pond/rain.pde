@@ -1,18 +1,18 @@
-class rain  {
-  
+class rain {
+
   float x, y, vx, vy, size;
 
-  
-  rain()  {
+
+  rain() {
     x = random (0, width);
     y = random (-height, 100);
     vx = 1;
     vy = random(1, 10);
     size = vy;
   }
-  
 
-  void show()  {
+
+  void show() {
     pushMatrix();
     strokeWeight(0);
     fill(255);
@@ -21,10 +21,10 @@ class rain  {
     rect(x, y, size/2, size);
     popMatrix();
   }
-  
-  void act()  {
+
+  void act() {
     y = y + vy;
-    if (y > height + size)  {
+    if (y > height + size) {
       y = random(-height, 0);
     }
   }

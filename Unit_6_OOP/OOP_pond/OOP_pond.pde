@@ -12,6 +12,8 @@ float y = 800;
 float velocity = 0.5;
 float miny = 800, maxy = 850;
 
+boolean rightkey, leftkey;
+
 ripple[] myripples;
 int numripples;
 
@@ -74,6 +76,8 @@ void setup () {
 void draw() {
   background(blue);
 
+ if (rightkey) rod += 5;
+ if (leftkey) rod -= 5;
 
   int a = 0;
   while (a < numripples) {
@@ -103,6 +107,8 @@ void draw() {
   if (y > maxy || y < miny) {
     velocity = velocity * -1;
   }
+  
+
 
 
   int c = 0;
@@ -124,4 +130,20 @@ void boat(float y) {
   fill(brown);
   rect(300, y - 50, 50, 100);
   rect(600, y - 50, 50, 100);
+}
+
+
+void keyPressed() {
+
+  if (keyCode == RIGHT) rightkey = true ;
+  if (keyCode == LEFT) leftkey = true;
+}
+
+void keyReleased() {
+  if (keyCode == RIGHT) rightkey = false ;
+  if (keyCode == LEFT) leftkey = false;
+}
+
+void rod()  {
+  line(400, 700, 500, 600);
 }
