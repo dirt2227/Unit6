@@ -12,7 +12,7 @@ float y = 800;
 float velocity = 0.5;
 float miny = 800, maxy = 850;
 
-boolean rightkey, leftkey;
+int rodx, rodw, rodh;
 
 ripple[] myripples;
 int numripples;
@@ -32,6 +32,10 @@ void setup () {
   rectMode(CENTER);
   noStroke();
   background(blue);
+
+  rodx = 400;
+  rodh = 300;
+  rodw = 10;
 
 
   numripples  = 20;
@@ -76,9 +80,6 @@ void setup () {
 void draw() {
   background(blue);
 
- if (rightkey) rod += 5;
- if (leftkey) rod -= 5;
-
   int a = 0;
   while (a < numripples) {
     myripples[a].show();
@@ -107,9 +108,12 @@ void draw() {
   if (y > maxy || y < miny) {
     velocity = velocity * -1;
   }
-  
 
-
+  rod(y);
+  y = y + velocity;
+  if (y > maxy || y < miny) {
+    velocity = velocity * -1;
+  }
 
   int c = 0;
   while (c < numfireflies) {
@@ -132,18 +136,20 @@ void boat(float y) {
   rect(600, y - 50, 50, 100);
 }
 
+void rod(float y) {
+  rodx = constrain(rodx, 600, 1000);
+  pushMatrix();
+  rotate(radians(20));
+  strokeWeight(1);
+  fill(ddbrown);
+  rect(rodx, y - 400, rodw, rodh);
+  stroke(255);
+  line(rodx, y - 550, 100, 400);
+  popMatrix();
+}
 
 void keyPressed() {
 
-  if (keyCode == RIGHT) rightkey = true ;
-  if (keyCode == LEFT) leftkey = true;
-}
-
-void keyReleased() {
-  if (keyCode == RIGHT) rightkey = false ;
-  if (keyCode == LEFT) leftkey = false;
-}
-
-void rod()  {
-  line(400, 700, 500, 600);
+  if (keyCode == RIGHT) rodx += 5 ;
+  if (keyCode == LEFT) rodx -= 5;
 }

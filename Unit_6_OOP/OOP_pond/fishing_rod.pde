@@ -1,6 +1,12 @@
 //rod
-class frod {
-    // fishing rod with bait fish goign to wards it but never getting it
-    //move it side to side with keys?
+class fish {
+    float x, y;
+    float radius;
+    float speed;
+    float bait;
+    
+    //fish(float stx, float sty)
+    
+    // move the fish with the keyboard   have it folow the bait
+    
 }
-//bait will drag and leave trail behind
