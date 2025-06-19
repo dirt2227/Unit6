@@ -6,7 +6,7 @@ color yellow = #ffbe0b;
 color brown = #bc6c25;
 color dbrown = #7f5539;
 color ddbrown = #583101;
-color pink = #ffafcc;
+color orange = #f77f00;
 
 float y = 800;
 float velocity = 0.5;
@@ -25,6 +25,9 @@ int numfireflies;
 
 itswindyouthere[] mywindy;
 int numwindy;
+
+fish[] myfishy;
+int numfishy;
 
 void setup () {
   size(800, 800, FX2D);
@@ -50,6 +53,10 @@ void setup () {
   numwindy = 20;
   mywindy = new itswindyouthere[numwindy];
 
+  numfishy = 20;
+  myfishy = new fish[numfishy];
+
+
   int a = 0;
   while (a < numripples) {
     myripples[a] = new ripple();
@@ -74,6 +81,12 @@ void setup () {
   while (d < numwindy) {
     mywindy[d] = new itswindyouthere();
     d++;
+  }
+  
+     int e = 0;
+  while (e < numfishy) {
+    myfishy[e] = new fish();
+    e++;
   }
 }
 
@@ -101,6 +114,12 @@ void draw() {
     mywindy[d].act();
     d++;
   }
+    int e = 0;
+  while (e < numfishy) {
+    myfishy[e].show();
+    myfishy[e].act();
+    e++;
+  }
 
 
   boat(y);
@@ -121,6 +140,8 @@ void draw() {
     myfireflies[c].act();
     c++;
   }
+  
+
 }
 
 
@@ -144,7 +165,9 @@ void rod(float y) {
   fill(ddbrown);
   rect(rodx, y - 400, rodw, rodh);
   stroke(255);
-  line(rodx, y - 550, 100, 400);
+  line(rodx, y - 550, rodx - 400, y - 450);
+  fill(255, 255, 255, 200);
+  circle(rodx - 400, y - 450, 20);
   popMatrix();
 }
 
